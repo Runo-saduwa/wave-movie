@@ -1,0 +1,193 @@
+@import 'fonts';
+@import 'variables';
+@import 'breakpoint';
+@import 'normalize';
+
+html {
+  font-size: 100%;
+  height: -webkit-fill-available;
+  scroll-behavior: smooth;
+
+  @include xl {
+    width: 1280px;
+    margin: auto;
+  }
+}
+
+body {
+  font-family: gt, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
+    Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: normal;
+  overflow-x: hidden;
+  margin: 0 auto;
+  color: $text-dark;
+  line-height: 1.67;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+*::-webkit-scrollbar {
+  width: 18px;
+}
+*::-webkit-scrollbar-track {
+  background: $light-grey;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $dark-grey;
+  border-radius: 20px;
+  border: 3px solid $light-grey;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  color: inherit;
+  line-height: 1.5;
+}
+
+button {
+  cursor: pointer;
+
+  &:focus,
+  &:visited,
+  &:active {
+    outline: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 500;
+  color: $text-dark;
+}
+
+img {
+  width: 100%;
+}
+
+// Form fields General Styling
+input,
+select {
+  background-color: #fff;
+  border: 1px solid $grey-border;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #000;
+  display: inline-block;
+  font-size: 0.85rem;
+  max-height: 50px;
+  letter-spacing: 0.01rem;
+  margin: 0;
+  max-width: 100%;
+  overflow: visible;
+  padding: 0 16px;
+  transition: color 0.2s ease-in-out;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus {
+    outline: 0;
+    background-color: #fff;
+    border-color: $color-primary;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $white inset !important;
+}
+
+input[type='checkbox'] {
+  -moz-appearance: checkbox;
+  -webkit-appearance: checkbox;
+  cursor: pointer;
+}
+input[type='radio'] {
+  -moz-appearance: radio;
+  -webkit-appearance: radio;
+  cursor: pointer;
+}
+
+select {
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-position: calc(100% - 12px) center;
+  background-size: 25px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-size: 16px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5291 10.4409C15.5897 10.3848 15.6633 10.3397 15.7455 10.3081C15.8277 10.2765 15.9168 10.2592 16.0073 10.2573C16.0977 10.2553 16.1878 10.2687 16.2718 10.2967C16.3559 10.3246 16.4323 10.3665 16.4963 10.4199C16.5603 10.4732 16.6106 10.5369 16.6441 10.6069C16.6777 10.677 16.6938 10.752 16.6914 10.8274C16.689 10.9028 16.6683 10.977 16.6304 11.0455C16.5925 11.114 16.5383 11.1754 16.4711 11.2259L12.4711 14.5592C12.3495 14.6604 12.1858 14.7186 12.0141 14.7217C11.8423 14.7248 11.6757 14.6726 11.5491 14.5759L7.54907 11.5209C7.42452 11.4201 7.35202 11.2829 7.34696 11.1383C7.34191 10.9937 7.40469 10.8531 7.52198 10.7465C7.63927 10.6399 7.80182 10.5755 7.97512 10.5672C8.14841 10.5588 8.31879 10.6071 8.45007 10.7017L11.9801 13.3976L15.5291 10.4417V10.4409Z" fill="grey"/></svg>');
+  background-repeat: no-repeat;
+}
+
+textarea {
+  background-color: #fff;
+  border: 1px solid rgba(4, 5, 6, 0.1);
+  border-radius: 4px;
+  min-height: 100px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: $text-light;
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 0.01rem;
+  margin: 0;
+  max-width: 100%;
+  overflow: visible;
+  padding: 16px;
+}
+
+:global {
+  @keyframes scrollUp {
+    0% {
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    100% {
+      -webkit-transform: translateY(-33.33%);
+      -moz-transform: translateY(-33.33%);
+      -ms-transform: translateY(-33.33%);
+      -o-transform: translateY(-33.33%);
+      transform: translateY(-33.33%);
+    }
+  }
+}
