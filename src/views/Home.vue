@@ -1,14 +1,19 @@
 <template>
-  <h1>Home</h1>
+  <div>
+    <h1>Home</h1>
+  </div>
+  <search-bar />
   <movie-card />
 </template>
 
 <script>
-import { MovieCard } from "@/components";
+import { MovieCard, SearchBar } from "@/components";
 
 export default {
-  components: { MovieCard },
+  components: { MovieCard, SearchBar },
 };
 </script>
 
-<style></style>
+<style lang="scss">
+@import "@/styles/breakpoint";
+</style>
