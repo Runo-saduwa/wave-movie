@@ -7,3 +7,5 @@ export { default as MovieDetailModal } from "./MovieDetailModal.vue";
 export { default as NoResult } from "./NoResult.vue";
 
 export { default as Loader } from "./Loader.vue";
+
+export { default as Footer } from "./Footer.vue";
