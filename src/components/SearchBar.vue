@@ -1,55 +1,63 @@
 <template>
-  <div class="wrap">
-    <div class="search">
-      <input
-        type="text"
-        class="searchTerm"
-        placeholder="What are you looking for?"
-      />
-      <button type="submit" class="searchButton">
-        <img src="@/assets/svgs/search.svg" alt="img" />
-      </button>
-    </div>
+  <div class="search">
+    <input
+      type="text"
+      class="search_searchTerm"
+      placeholder="What are you looking for?"
+    />
+    <button type="submit" class="search_searchButton">
+      <img src="@/assets/svgs/search.svg" alt="search" />
+    </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "SearchBar",
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/styles/variables";
 .search {
-  width: 100%;
-  position: relative;
   display: flex;
   height: 36px;
-}
+  max-width: 525px;
+  margin: 0 auto;
 
-.searchTerm {
-  width: 100%;
-  border: 3px solid white;
-  border-right: none;
-  padding: 5px;
-  height: 36px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-}
+  &_searchTerm {
+    width: 100%;
+    color: $white;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    background: transparent;
+    border: 2px solid #d1d5db;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    padding: 6px 10px;
+    height: inherit;
+    outline: none;
+    &::placeholder {
+      color: $white;
+    }
+  }
 
-.searchTerm:focus {
-  color: white;
-}
-
-.searchButton {
-  width: 40px;
-  height: 36px;
-  background: #00b4cc;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.wrap {
+  &_searchButton {
+    width: 30px;
+    height: 36px;
+    background: transparent;
+    text-align: center;
+    color: #fff;
+    border: 2px solid #d1d5db;
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+    cursor: pointer;
+    font-size: 20px;
+    img {
+      width: 14px;
+      height: 14px;
+    }
+  }
 }
 </style>
