@@ -1,11 +1,157 @@
 <template>
-  <h1>Movie Card</h1>
-  <img src="@/assets/images/imdb.png" alt="img" />
-  <img src="@/assets/images/tomatoes.png" alt="img" />
+  <main class="movieCard">
+    <section class="movieCard_posterSection">
+      <p class="movieCard_posterSection_type">
+        <span> {{ type }} </span>
+      </p>
+      <img :src="poster" alt="img" />
+    </section>
+
+    <section class="movieCard_extraDetailsSection">
+      <p class="movieCard_extraDetailsSection_year">{{ year }}</p>
+
+      <h1 class="movieCard_extraDetailsSection_title">{{ title }}</h1>
+
+      <div class="movieCard_extraDetailsSection_ratings">
+        <div class="movieCard_extraDetailsSection_ratings_imdb">
+          <img src="@/assets/images/imdb.png" alt="IMDB-RATING" />
+          <span>{{ imdbRating }}</span>
+        </div>
+        <div class="movieCard_extraDetailsSection_ratings_tomatoes">
+          <img src="@/assets/images/tomatoes.png" alt="ROTTEN-TOMATOES" />
+          <span>{{ rottenTomatoes }}</span>
+        </div>
+      </div>
+
+      <p class="movieCard_extraDetailsSection_genre">{{ genre }}</p>
+    </section>
+  </main>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "MovieCard",
+  props: {
+    type: {
+      type: String,
+      default: "Movie",
+    },
+    poster: {
+      type: String,
+      default:
+        "https://m.media-amazon.com/images/M/MV5BN2ZmYjg1YmItNWQ4OC00YWM0LWE0ZDktYThjOTZiZjhhN2Q2XkEyXkFqcGdeQXVyNjgxNTQ3Mjk@._V1_SX300.jpg",
+    },
+    imdbRating: {
+      type: String,
+      default: "7.5",
+    },
+    rottenTomatoes: {
+      type: String,
+      default: "70%",
+    },
+    title: {
+      type: String,
+      default: "Stranger Things",
+    },
+    genre: {
+      type: String,
+      default: "Drama, Fantasy, Horror",
+    },
+    year: {
+      type: String,
+      default: "2016",
+    },
+  },
+};
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "@/styles/variables";
+.movieCard {
+  max-width: 250px;
+  :hover {
+    cursor: pointer;
+  }
+  &_posterSection {
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+    height: 370px;
+    box-sizing: border-box;
+    img {
+      transition: all 0.2s ease-in-out;
+      object-fit: cover;
+    }
+    &:hover img {
+      transform: scale(1.1);
+    }
+
+    &_type {
+      position: absolute;
+      z-index: 10;
+      left: 16px;
+      top: 19.18px;
+      display: grid;
+      place-items: center;
+      background: rgba(243, 244, 246, 0.5);
+      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      width: 74px;
+      height: 22px;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 16px;
+      text-transform: uppercase;
+    }
+  }
+
+  &_extraDetailsSection {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    gap: 12px;
+    &_year {
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 16px;
+      color: $gray;
+    }
+
+    &_title {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    &_ratings {
+      display: flex;
+      justify-content: space-between;
+      &_imdb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 35px;
+          height: 17px;
+        }
+      }
+      &_tomatoes {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 16px;
+          height: 17px;
+        }
+      }
+    }
+
+    &_genre {
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 16px;
+      color: $gray;
+    }
+  }
+}
+</style>

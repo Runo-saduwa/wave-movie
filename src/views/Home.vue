@@ -1,20 +1,20 @@
 <template>
   <section class="home">
     <header class="home_header">
-      <h1>Home</h1>
       <search-bar />
     </header>
-    <main>
+    <main class="home_movieList">
+      <h1 class="home_movieList_title">Search Results</h1>
       <movie-card />
     </main>
   </section>
 </template>
 
 <script>
-import { MovieCard, SearchBar } from "@/components";
+import { SearchBar, MovieCard } from "@/components";
 
 export default {
-  components: { MovieCard, SearchBar },
+  components: { SearchBar, MovieCard },
 };
 </script>
 
@@ -23,15 +23,19 @@ export default {
 
 .home {
   &_header {
-    min-height: 600px;
+    height: 90vh;
     background: url(../assets/images/poster.png);
-    // background: linear-gradient(
-    //     0deg,
-    //     rgba(255, 0, 150, 0.3),
-    //     rgba(255, 0, 150, 0.3)
-    //   ),
-    //   url(../assets/images/poster.png);
+    background-position: center center;
     background-size: cover;
+  }
+
+  &_movieList {
+    &_title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 44px;
+    }
+    padding: 70px 98px;
   }
 }
 </style>

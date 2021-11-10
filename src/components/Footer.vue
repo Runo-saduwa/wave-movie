@@ -13,7 +13,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/variables";
 .footer {
-  padding: 62.57px 0;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   p {
     text-align: center;
     color: $gray;
