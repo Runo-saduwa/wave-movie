@@ -3,18 +3,21 @@
     <header class="home_header">
       <search-bar />
     </header>
-    <main class="home_movieList">
+
+       <movie-detail-modal />
+    <!-- <main class="home_movieList">
       <h1 class="home_movieList_title">Search Results</h1>
       <movie-card />
-    </main>
+      <movie-detail-modal />
+    </main> -->
   </section>
 </template>
 
 <script>
-import { SearchBar, MovieCard } from "@/components";
-
+//import { SearchBar, MovieCard, MovieDetailModal } from "@/components";
+import { SearchBar,  MovieDetailModal } from "@/components";
 export default {
-  components: { SearchBar, MovieCard },
+  components: { SearchBar,  MovieDetailModal},
 };
 </script>
 
