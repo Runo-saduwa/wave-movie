@@ -3,16 +3,22 @@
     <div class="modal_content">
       <section class="modal_content_posterSection">
         <img :src="poster" />
-        <button type="button">Search for another movie</button>
+        <button type="button" @click="onClose()">
+          Search for another movie
+        </button>
       </section>
 
       <section class="modal_content_detailSection">
         <h1 class="modal_content_detailSection_title">{{ title }}</h1>
 
         <div class="modal_content_detailSection_tags">
-          <Tag :text="runtime" />
-          <Tag :text="year" />
-          <Tag :text="genre" />
+          <Tag v-show="runtime" :text="runtime" />
+          <Tag v-show="type" :text="type" />
+          <Tag v-show="year" :text="year" />
+          <Tag v-show="genre" :text="genre" />
+          <Tag v-show="rated" :text="rated" />
+          <Tag v-show="language" :text="language" />
+          <Tag v-show="awards" :text="awards" />
         </div>
 
         <div class="modal_content_detailSection_imbd">
@@ -25,15 +31,25 @@
           <p>{{ plot }}</p>
         </div>
 
-        <div class="modal_content_detailSection_writer">
-          <h1>{{ writer }}</h1>
-          <p>writer</p>
+        <div class="modal_content_detailSection_director" v-show="director">
+          <h1>Director</h1>
+          <p>{{ director }}</p>
+        </div>
+
+        <div class="modal_content_detailSection_actors" v-show="actors">
+          <h1>Actors</h1>
+          <p>{{ actors }}</p>
+        </div>
+
+        <div class="modal_content_detailSection_writer" v-show="writers">
+          <h1>Writers</h1>
+          <p>{{ writers }}</p>
         </div>
       </section>
     </div>
   </main>
 
-  <div class="modal_mask" v-show="show"></div>
+  <div class="modal_mask" @click="onClose()" v-show="show"></div>
 </template>
 
 <script>
@@ -42,44 +58,22 @@ import Tag from "./Tag.vue";
 export default {
   components: { Tag },
   props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-    title: {
-      type: String,
-      default: "You've got a job",
-    },
-    plot: {
-      type: String,
-      default:
-        "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
-    },
-    poster: {
-      type: String,
-      default:
-        "https://m.media-amazon.com/images/M/MV5BN2ZmYjg1YmItNWQ4OC00YWM0LWE0ZDktYThjOTZiZjhhN2Q2XkEyXkFqcGdeQXVyNjgxNTQ3Mjk@._V1_SX300.jpg",
-    },
-    imdbRating: {
-      type: String,
-      default: "7.5",
-    },
-    genre: {
-      type: String,
-      default: "Drama, Fantasy, Horror",
-    },
-    year: {
-      type: String,
-      default: "2016",
-    },
-    runtime: {
-      type: String,
-      default: "1hr 30min",
-    },
-    writer: {
-      type: String,
-      default: "Matt Duffer",
-    },
+    show: Boolean,
+    title: String,
+    plot: String,
+    poster: String,
+    imdbRating: String,
+    genre: String,
+    year: String,
+    runtime: String,
+    writers: String,
+    onClose: Function,
+    rated: String,
+    type: String,
+    language: String,
+    actors: String,
+    director: String,
+    awards: String,
   },
 };
 </script>
@@ -141,9 +135,9 @@ export default {
           width: 64px;
         }
       }
-      &_writer {
-        text-align: center;
-        width: fit-content;
+      &_writer,
+      &_actors,
+      &_director {
         margin-top: 20px;
         h1 {
           font-weight: 600;

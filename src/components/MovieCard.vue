@@ -1,5 +1,5 @@
 <template>
-  <main class="movieCard">
+  <main role="button" @click="onViewMovie()" class="movieCard">
     <section class="movieCard_posterSection">
       <p class="movieCard_posterSection_type">
         <span> {{ type }} </span>
@@ -15,11 +15,11 @@
       <div class="movieCard_extraDetailsSection_ratings">
         <div class="movieCard_extraDetailsSection_ratings_imdb">
           <img src="@/assets/images/imdb.png" alt="IMDB-RATING" />
-          <span>{{ imdbRating }}</span>
+          <span>{{ imdbRating }} / 10</span>
         </div>
         <div class="movieCard_extraDetailsSection_ratings_tomatoes">
           <img src="@/assets/images/tomatoes.png" alt="ROTTEN-TOMATOES" />
-          <span>{{ rottenTomatoes }}</span>
+          <span>{{ rottenTomatoes }} %</span>
         </div>
       </div>
 
@@ -61,6 +61,7 @@ export default {
       type: String,
       default: "2016",
     },
+    onViewMovie: Function,
   },
 };
 </script>
@@ -68,15 +69,14 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/variables";
 .movieCard {
-  max-width: 250px;
+  width: 250px;
+  margin: 0 auto;
   :hover {
     cursor: pointer;
   }
   &_posterSection {
     position: relative;
     overflow: hidden;
-    width: 250px;
-    height: 370px;
     box-sizing: border-box;
     img {
       transition: all 0.2s ease-in-out;

@@ -4,8 +4,14 @@
       type="text"
       class="search_searchTerm"
       placeholder="What are you looking for?"
+      @input="onInput"
+      :value="modelValue"
     />
-    <button type="submit" class="search_searchButton">
+    <button
+      @click.prevent="handleSearch"
+      type="submit"
+      class="search_searchButton"
+    >
       <img src="@/assets/svgs/search.svg" alt="search" />
     </button>
   </div>
@@ -14,6 +20,13 @@
 <script>
 export default {
   name: "SearchBar",
+  props: ["modelValue", "handleSearch"],
+  emits: ["update:modelValue"],
+  methods: {
+    onInput(event) {
+      this.$emit("update:modelValue", event.target.value);
+    },
+  },
 };
 </script>
 
