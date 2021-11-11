@@ -37,6 +37,7 @@
     </template>
   </section>
 
+  <!-- Modal that shows only when showModal is true -->
   <movie-detail-modal
     @close-modal="viewMovieDetails"
     :show="showModal"
@@ -68,6 +69,8 @@ import {
 
 import { apiClient, scrollToBottom } from "@/helpers";
 
+import config from "../config";
+
 export default {
   name: "Home",
   components: {
@@ -83,8 +86,6 @@ export default {
       searchTerm: "",
       movie: {},
       searching: false,
-      error: false,
-      errorMessage: "",
     };
   },
 
@@ -95,21 +96,20 @@ export default {
     async handleSearch() {
       const { searchTerm } = this;
 
-      if (!searchTerm) {
-        return;
-      }
+      if (!searchTerm) return;
 
       this.searching = true;
 
       scrollToBottom();
+
       try {
         const { data } = await apiClient.get(
-          `?apikey=1c357168&t=${searchTerm}`
+          `?apikey=${config.apiKey}&t=${searchTerm}`
         );
         this.movie = data;
         this.searching = false;
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
       }
     },
   },
