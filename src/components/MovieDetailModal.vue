@@ -155,6 +155,7 @@ export default {
         @include lp() {
           margin-top: 0;
           font-size: 67.77px;
+          letter-spacing: -0.03em;
           line-height: 90px;
           font-weight: bold;
         }

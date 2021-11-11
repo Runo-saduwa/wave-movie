@@ -1,10 +1,10 @@
 <template>
   <section class="home">
     <header class="home_header">
+      <span class="home_header_logo">WaveMovie 🦋</span>
       <main class="home_header_mainWrapper">
         <h1>🦋 <br />Unlimited movies, TV shows and more.</h1>
-        <p>Watch anywhere. Cancel anytime.</p>
-        <span> Ready to watch? Enter the name of your favorite movie. ✨ </span>
+        <p>Watch anywhere. Cancel anytime ✨.</p>
         <search-bar v-model="searchTerm" :handleSearch="handleSearch" />
       </main>
     </header>
@@ -123,13 +123,23 @@ export default {
 
 .home {
   &_header {
+    position: relative;
     height: 90vh;
     background: center / cover url(../assets/images/poster.png)
-      rgba(0, 0, 0, 0.4);
+      rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     text-align: center;
     color: $white;
     background-repeat: no-repeat;
+
+    &_logo {
+      position: absolute;
+      left: 25px;
+      top: 25px;
+      font-size: 24px;
+      font-weight: 600;
+       letter-spacing: -0.03em;
+    }
 
     &_mainWrapper {
       display: flex;
@@ -145,27 +155,24 @@ export default {
         height: 90%;
       }
       h1 {
-        font-size: 36px;
         font-weight: bold;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        font-size: 36px;
+        line-height: 60px;
+        margin-bottom: 8px;
         @include lp() {
+          letter-spacing: -0.05em;
           font-size: 64px;
-          line-height: 70px;
         }
       }
       p {
-        font-size: 24px;
+        font-size: 18px;
+        line-height: 30px;
+        margin-bottom: 5px;
         @include lp() {
-          font-size: 26px;
-          line-height: 33px;
-        }
-      }
-      span {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        margin-bottom: 2.5px;
-        @include lp() {
-          font-size: 19px;
+          font-size: 24px;
+          line-height: 40px;
         }
       }
     }
