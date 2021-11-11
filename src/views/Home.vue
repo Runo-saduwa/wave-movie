@@ -1,7 +1,9 @@
 <template>
   <section class="home">
     <header class="home_header">
-      <span class="home_header_logo">WaveBox 🦋</span>
+      <span class="home_header_logo"
+        ><router-link to="/">WaveBox 🦋</router-link></span
+      >
       <main class="home_header_mainWrapper">
         <h1>🦋 <br />Unlimited movies, TV shows and more.</h1>
         <p>Watch anywhere. Cancel anytime ✨.</p>

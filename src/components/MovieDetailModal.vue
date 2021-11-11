@@ -54,6 +54,7 @@
 import Tag from "./Tag.vue";
 
 export default {
+  name: 'MovieDetailModal',
   components: { Tag },
   emits: ["close-modal"],
   props: {
