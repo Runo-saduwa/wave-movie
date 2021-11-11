@@ -18,5 +18,6 @@ export default {
   border-radius: 10px;
   padding: 8px;
   width: fit-content;
+  margin: 8px;
 }
 </style>

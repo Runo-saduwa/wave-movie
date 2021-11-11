@@ -5,6 +5,7 @@
       class="search_searchTerm"
       placeholder="What are you looking for?"
       @input="onInput"
+      @keyup.enter="handleSearch"
       :value="modelValue"
     />
     <button

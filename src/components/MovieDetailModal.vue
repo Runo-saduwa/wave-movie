@@ -162,7 +162,6 @@ export default {
         margin-top: 24px;
         display: flex;
         flex-wrap: wrap;
-        gap: 18px;
       }
 
       &_overview {
