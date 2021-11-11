@@ -100,6 +100,7 @@ export default {
   transition: all 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   margin: 0 auto;
   width: 90%;
+  max-width: 1280px;
   max-height: 95vh;
   min-height: 90vh;
   overflow: auto;

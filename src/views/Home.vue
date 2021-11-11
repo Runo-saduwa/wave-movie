@@ -1,18 +1,27 @@
 <template>
   <section class="home">
     <header class="home_header">
-      <search-bar v-model="searchTerm" :handleSearch="handleSearch" />
+      <main class="home_header_mainWrapper">
+        <h1>🦋 <br />Unlimited movies, TV shows and more.</h1>
+        <p>Watch anywhere. Cancel anytime.</p>
+        <span> Ready to watch? Enter the name of your favorite movie. ✨ </span>
+        <search-bar v-model="searchTerm" :handleSearch="handleSearch" />
+      </main>
     </header>
 
     <loader v-if="searching" />
 
     <no-result
       v-else-if="movie.hasOwnProperty('Error')"
-      message="Movie not found."
+      :message="movie.Error"
     />
 
     <template v-else>
-      <main class="home_movieList" v-show="movie.hasOwnProperty('Title')">
+      <main
+        id="box"
+        class="home_movieList"
+        v-show="movie.hasOwnProperty('Title')"
+      >
         <h1 class="home_movieList_title">Search Result</h1>
         <movie-card
           :poster="movie.Poster"
@@ -91,6 +100,11 @@ export default {
       }
 
       this.searching = true;
+      window.scrollTo({
+        left: 0,
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
       try {
         const { data } = await apiClient.get(
           `?apikey=1c357168&t=${searchTerm}`
@@ -100,6 +114,11 @@ export default {
         this.searching = false;
 
         console.log(data);
+        window.scrollTo({
+          left: 0,
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
       } catch (e) {
         console.log(e);
       }
@@ -115,7 +134,51 @@ export default {
 .home {
   &_header {
     height: 90vh;
-    background: center / cover no-repeat url(../assets/images/poster.png) $white;
+    background: center / cover url(../assets/images/poster.png)
+      rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    text-align: center;
+    color: $white;
+    background-repeat: no-repeat;
+
+    &_mainWrapper {
+      display: flex;
+      gap: 18px;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
+      width: 90%;
+      height: 90%;
+
+      @include lp() {
+        width: 50%;
+        height: 90%;
+      }
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        @include lp() {
+          font-size: 64px;
+          line-height: 70px;
+        }
+      }
+      p {
+        font-size: 18px;
+        @include lp() {
+          font-size: 26px;
+          line-height: 33px;
+        }
+      }
+      span {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.005em;
+        @include lp() {
+          font-size: 19px;
+        }
+      }
+    }
   }
 
   &_movieList {

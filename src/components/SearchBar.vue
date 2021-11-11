@@ -34,9 +34,9 @@ export default {
 @import "@/styles/variables";
 .search {
   display: flex;
-  height: 36px;
-  max-width: 525px;
+  height: 50px;
   margin: 0 auto;
+  width: 100%;
 
   &_searchTerm {
     width: 100%;
@@ -57,19 +57,18 @@ export default {
   }
 
   &_searchButton {
-    width: 30px;
-    height: 36px;
+    height: inherit;
     background: transparent;
-    text-align: center;
     color: #fff;
     border: 2px solid #d1d5db;
     border-radius: 0 6px 6px 0;
     border-left: none;
     cursor: pointer;
     font-size: 20px;
+    padding: 6px 10px 6px 0;
     img {
-      width: 14px;
-      height: 14px;
+      width: 20px;
+      height: 20px;
     }
   }
 }
