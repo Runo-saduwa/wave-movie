@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p>© MovieBox by Runo Saduwa 🦋</p>
+    <p>© WaveBox by Runo Saduwa 🦋</p>
   </footer>
 </template>
 

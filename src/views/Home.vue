@@ -67,7 +67,7 @@ import {
   NoResult,
 } from "@/components";
 
-import apiClient from "@/helpers/apiClient";
+import { apiClient, scrollToBottom } from "@/helpers";
 
 export default {
   components: {
@@ -100,25 +100,14 @@ export default {
       }
 
       this.searching = true;
-      window.scrollTo({
-        left: 0,
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
+
+      scrollToBottom();
       try {
         const { data } = await apiClient.get(
           `?apikey=1c357168&t=${searchTerm}`
         );
         this.movie = data;
-
         this.searching = false;
-
-        console.log(data);
-        window.scrollTo({
-          left: 0,
-          top: document.body.scrollHeight,
-          behavior: "smooth",
-        });
       } catch (e) {
         console.log(e);
       }

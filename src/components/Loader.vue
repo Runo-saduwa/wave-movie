@@ -13,7 +13,7 @@
   </section>
 </template>
 
-<style>
+<style scoped>
 .spinnerContainer {
   min-height: 30vh;
   display: grid;

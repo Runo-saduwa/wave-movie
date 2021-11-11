@@ -32,35 +32,13 @@
 export default {
   name: "MovieCard",
   props: {
-    type: {
-      type: String,
-      default: "Movie",
-    },
-    poster: {
-      type: String,
-      default:
-        "https://m.media-amazon.com/images/M/MV5BN2ZmYjg1YmItNWQ4OC00YWM0LWE0ZDktYThjOTZiZjhhN2Q2XkEyXkFqcGdeQXVyNjgxNTQ3Mjk@._V1_SX300.jpg",
-    },
-    imdbRating: {
-      type: String,
-      default: "7.5",
-    },
-    rottenTomatoes: {
-      type: String,
-      default: "70%",
-    },
-    title: {
-      type: String,
-      default: "Stranger Things",
-    },
-    genre: {
-      type: String,
-      default: "Drama, Fantasy, Horror",
-    },
-    year: {
-      type: String,
-      default: "2016",
-    },
+    type: String,
+    poster: String,
+    imdbRating: String,
+    rottenTomatoes: String,
+    title: String,
+    genre: String,
+    year: String,
     onViewMovie: Function,
   },
 };
