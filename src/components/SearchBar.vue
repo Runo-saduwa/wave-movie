@@ -3,7 +3,7 @@
     <input
       type="text"
       class="search_searchTerm"
-      placeholder="What are you looking for?"
+      :placeholder="placeholder"
       @input="onInput"
       @keyup.enter="handleSearch"
       :value="modelValue"
@@ -21,7 +21,7 @@
 <script>
 export default {
   name: "SearchBar",
-  props: ["modelValue", "handleSearch"],
+  props: ["modelValue", "handleSearch", "placeholder"],
   emits: ["update:modelValue"],
   methods: {
     onInput(event) {

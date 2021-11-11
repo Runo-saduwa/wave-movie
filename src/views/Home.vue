@@ -5,7 +5,11 @@
       <main class="home_header_mainWrapper">
         <h1>🦋 <br />Unlimited movies, TV shows and more.</h1>
         <p>Watch anywhere. Cancel anytime ✨.</p>
-        <search-bar v-model="searchTerm" :handleSearch="handleSearch" />
+        <search-bar
+          placeholder="What are you looking for? E.g Fast"
+          v-model="searchTerm"
+          :handleSearch="handleSearch"
+        />
       </main>
     </header>
 
@@ -95,6 +99,7 @@ export default {
     },
     async handleSearch() {
       const { searchTerm } = this;
+      const searchQuery = `?apikey=${config.apiKey}&t=${searchTerm}`;
 
       if (!searchTerm) return;
 
@@ -103,9 +108,7 @@ export default {
       scrollToBottom();
 
       try {
-        const { data } = await apiClient.get(
-          `?apikey=${config.apiKey}&t=${searchTerm}`
-        );
+        const { data } = await apiClient.get(searchQuery);
         this.movie = data;
         this.searching = false;
       } catch (error) {

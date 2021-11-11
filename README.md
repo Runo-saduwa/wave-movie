@@ -28,6 +28,12 @@ yarn install
 yarn serve
 ```
 
+### Run test ✨
+
+```
+yarn test:unit
+```
+
 ### Compiles and minifies for production ✨
 
 ```
