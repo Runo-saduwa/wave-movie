@@ -138,7 +138,7 @@ export default {
       top: 25px;
       font-size: 24px;
       font-weight: 600;
-       letter-spacing: -0.03em;
+      letter-spacing: -0.03em;
     }
 
     &_mainWrapper {
@@ -159,10 +159,11 @@ export default {
         font-weight: 600;
         letter-spacing: -0.03em;
         font-size: 36px;
-        line-height: 60px;
+        line-height: 40px;
         margin-bottom: 8px;
         @include lp() {
           letter-spacing: -0.05em;
+          line-height: 60px;
           font-size: 64px;
         }
       }
