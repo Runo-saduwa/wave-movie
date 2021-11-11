@@ -70,6 +70,7 @@ import {
 import { apiClient, scrollToBottom } from "@/helpers";
 
 export default {
+  name: "Home",
   components: {
     SearchBar,
     MovieDetailModal,
@@ -152,7 +153,7 @@ export default {
         }
       }
       p {
-        font-size: 18px;
+        font-size: 24px;
         @include lp() {
           font-size: 26px;
           line-height: 33px;
@@ -160,9 +161,9 @@ export default {
       }
       span {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 24px;
-        letter-spacing: 0.005em;
+        margin-bottom: 2.5px;
         @include lp() {
           font-size: 19px;
         }

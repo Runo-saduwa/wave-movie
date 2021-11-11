@@ -121,7 +121,6 @@ export default {
       &_imbd {
         margin-top: 20px;
         display: flex;
-        gap: 14px;
         span {
           font-size: 24px;
           sub {
@@ -134,6 +133,7 @@ export default {
           border-radius: 10px;
           height: 32px;
           width: 64px;
+          margin-right: 10px;
         }
       }
       &_writer,
@@ -163,7 +163,7 @@ export default {
         margin-top: 24px;
         display: flex;
         flex-wrap: wrap;
-        grid-gap: 20px;
+        gap: 18px;
       }
 
       &_overview {

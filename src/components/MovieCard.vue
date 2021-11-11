@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/variables";
 .movieCard {
-  width: 250px;
+  max-width: 250px;
   margin: 0 auto;
   :hover {
     cursor: pointer;
@@ -87,39 +87,43 @@ export default {
     display: flex;
     flex-direction: column;
     padding-top: 12px;
-    gap: 12px;
+
     &_year {
       font-weight: bold;
       font-size: 12px;
       line-height: 16px;
       color: $gray;
+      margin-bottom: 12px;
     }
 
     &_title {
       font-weight: 400;
       font-size: 18px;
       line-height: 23px;
+      margin-bottom: 12px;
     }
 
     &_ratings {
       display: flex;
       justify-content: space-between;
-      &_imdb {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        img {
-          width: 35px;
-          height: 17px;
-        }
-      }
+      margin-bottom: 12px;
+      &_imdb,
       &_tomatoes {
         display: flex;
         align-items: center;
-        gap: 10px;
+      }
+      &_imdb {
+        img {
+          width: 35px;
+          height: 17px;
+          margin-right: 8px;
+        }
+      }
+      &_tomatoes {
         img {
           width: 16px;
           height: 17px;
+          margin-right: 5px;
         }
       }
     }
