@@ -159,7 +159,7 @@ export default {
         letter-spacing: -0.03em;
         font-size: 36px;
         line-height: 40px;
-        margin-bottom:10px;
+        margin-bottom: 10px;
         @include lp() {
           letter-spacing: -0.05em;
           line-height: 60px;
