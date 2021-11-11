@@ -3,9 +3,7 @@
     <div class="modal_content">
       <section class="modal_content_posterSection">
         <img :src="poster" />
-        <button type="button" @click="onClose()">
-          Search for another movie
-        </button>
+        <button type="button" @click="$emit('close-modal')">Close</button>
       </section>
 
       <section class="modal_content_detailSection">
@@ -49,7 +47,7 @@
     </div>
   </main>
 
-  <div class="modal_mask" @click="onClose()" v-show="show"></div>
+  <div class="modal_mask" @click="$emit('close-modal')" v-show="show"></div>
 </template>
 
 <script>
@@ -57,6 +55,7 @@ import Tag from "./Tag.vue";
 
 export default {
   components: { Tag },
+  emits: ["close-modal"],
   props: {
     show: Boolean,
     title: String,
@@ -67,7 +66,6 @@ export default {
     year: String,
     runtime: String,
     writers: String,
-    onClose: Function,
     rated: String,
     type: String,
     language: String,

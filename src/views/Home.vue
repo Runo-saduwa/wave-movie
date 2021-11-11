@@ -1,7 +1,7 @@
 <template>
   <section class="home">
     <header class="home_header">
-      <span class="home_header_logo">WaveMovie 🦋</span>
+      <span class="home_header_logo">WaveBox 🦋</span>
       <main class="home_header_mainWrapper">
         <h1>🦋 <br />Unlimited movies, TV shows and more.</h1>
         <p>Watch anywhere. Cancel anytime ✨.</p>
@@ -28,7 +28,7 @@
           :title="movie.Title"
           :year="movie.Released"
           :type="movie.Type"
-          :onViewMovie="onViewMovieCB"
+          @view-movie="viewMovieDetails"
           :genre="movie.Genre"
           :imdbRating="movie.imdbRating"
           :rottenTomatoes="movie.Metascore"
@@ -38,7 +38,7 @@
   </section>
 
   <movie-detail-modal
-    :onClose="onViewMovieCB"
+    @close-modal="viewMovieDetails"
     :show="showModal"
     :poster="movie.Poster"
     :runtime="movie.Runtime"
@@ -46,7 +46,6 @@
     :title="movie.Title"
     :year="movie.Released"
     :type="movie.Type"
-    :onViewMovie="onViewMovieCB"
     :genre="movie.Genre"
     :imdbRating="movie.imdbRating"
     :rated="movie.Rated"
@@ -90,7 +89,7 @@ export default {
   },
 
   methods: {
-    onViewMovieCB() {
+    viewMovieDetails() {
       this.showModal = !this.showModal;
     },
     async handleSearch() {

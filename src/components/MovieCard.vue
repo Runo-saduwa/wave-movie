@@ -1,5 +1,5 @@
 <template>
-  <main role="button" @click="onViewMovie()" class="movieCard">
+  <main role="button" @click="onViewMovie" class="movieCard">
     <section class="movieCard_posterSection">
       <p class="movieCard_posterSection_type">
         <span> {{ type }} </span>
@@ -31,6 +31,12 @@
 <script>
 export default {
   name: "MovieCard",
+  methods: {
+    onViewMovie() {
+      this.$emit("view-movie");
+    },
+  },
+  emits: ["view-movie"],
   props: {
     type: String,
     poster: String,
@@ -39,7 +45,6 @@ export default {
     title: String,
     genre: String,
     year: String,
-    onViewMovie: Function,
   },
 };
 </script>
